@@ -1,0 +1,44 @@
+[
+  {
+    "project": "SIP",
+    "task": {
+      "name": "Task1",
+      "description": "task1 description",
+      "active": true
+    },
+
+    "parameters": {
+      "contextName": "Default",
+      "applyContextToChildren": false,
+      "logLevel": "Info",
+      "statisticsEnabled": true,
+      "onUnavailableJobServer": "WAIT",
+      "timeout": 1500,
+      "pauseTriggerOnError": false
+    },
+
+    "nexus": {
+      "repository": "releases",
+      "groupId": "org.example",
+      "artifactId": "MyFirstJob",
+      "version": "0.1.0"
+    },
+    "executionServer": "serv1",
+	
+	"triggers": [
+      {
+        "cron": {
+          "label": "FirstCronTrigger",
+          "description": "First cron trigger",
+          "timezone": "JOBSERVER_TIMEZONE",
+          "pauseOnError": true,
+          "minutes": "0,30",
+          "hours": "12,15",
+          "daysOfMonth": "15",
+          "months": "*",
+          "years": "2018"
+        }
+      }
+    ]
+  }
+]
